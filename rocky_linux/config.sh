@@ -61,4 +61,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 cp ../config/.zshrc ~/
 cp ../config/mark.zsh-theme ~/.oh-my-zsh/themes/
 
-sudo chsh -s /bin/zsh $(whoami)
+sudo usermod -s /bin/zsh $(whoami)
+
