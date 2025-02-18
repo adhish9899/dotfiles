@@ -27,4 +27,6 @@ sudo dnf install -y ncdu
 # Install gcc
 sudo dnf install -y gcc gcc-c++
 
+# Install stunnel
+sudo yum install -y stunnel
 
