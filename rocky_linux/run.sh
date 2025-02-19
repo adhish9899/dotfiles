@@ -30,3 +30,11 @@ sudo dnf install -y gcc gcc-c++
 # Install stunnel
 sudo yum install -y stunnel
 
+# Install redis and update the settings as well
+sudo dnf install -y redis
+## Ensure `daemonize` yes
+sudo sed -i 's/^#\?\s*daemonize\s\+.*/daemonize yes/' /etc/redis/redis.conf
+
+sudo systemctl enable redis
+sudo systemctl start redis
+
