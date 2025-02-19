@@ -38,3 +38,8 @@ sudo sed -i 's/^#\?\s*daemonize\s\+.*/daemonize yes/' /etc/redis/redis.conf
 sudo systemctl enable redis
 sudo systemctl start redis
 
+## Install supervisord
+sudo yum -y install supervisor
+sudo systemctl enable supervisord
+sudo systemctl start supervisord
+
