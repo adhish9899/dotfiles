@@ -43,3 +43,5 @@ sudo yum -y install supervisor
 sudo systemctl enable supervisord
 sudo systemctl start supervisord
 
+## Installing capnproto
+sudo dnf install capnproto
