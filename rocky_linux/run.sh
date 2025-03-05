@@ -43,5 +43,12 @@ sudo yum -y install supervisor
 sudo systemctl enable supervisord
 sudo systemctl start supervisord
 
-## Installing capnproto
-sudo dnf install capnproto
+## Installing cmake
+sudo dnf install -y cmake
+
+## Insatlling flatc/flatbuffers
+# wget https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz 
+# tar -xvzf v25.2.10.tar.gz
+# cd flatbuffers-25.2.10
+# cmake -G "Unix Makefiles"
+# make -j
