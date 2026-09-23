@@ -15,6 +15,10 @@ PermitRootLogin no
 # if SELinux is re-enabled: semanage port -a -t ssh_port_t -p tcp 2222
 EOF
 
+### Check if the changes are applied
+sshd -t && systemctl reload sshd
+sshd -T | grep -E '^(permitrootlogin|logingracetime|port) '
+
 ## Any rule not matching the public zone is dropped. Traffic from `whitelisted` IP is handled by trusted zone
 firewall-cmd --permanent --zone=public --set-target=DROP
 
@@ -35,8 +39,10 @@ firewall-cmd --permanent --zone=public --remove-service=ssh
 
 ## Answer ping
 firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" icmp-type name="echo-request" accept'
-
 firewall-cmd --zone=public --list-all
-
 firewall-cmd --reload
+
+## Remove the timer
+systemctl stop fw-rollback.timer
+systemctl list-timers --all | grep fw-rollback
 
